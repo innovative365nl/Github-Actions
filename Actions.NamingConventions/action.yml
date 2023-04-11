@@ -19,7 +19,10 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    -path ${{ inputs.path }}
-    -env ${{ inputs.environment }}
-    -product ${{ inputs.product }}
+    - path
+    - ${{ inputs.path }}
+    - env
+    - ${{ inputs.environment }}
+    - product
+    - ${{ inputs.product }}
   entrypoint: "/app/entrypoint.sh"
