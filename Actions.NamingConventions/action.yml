@@ -1,0 +1,25 @@
+name: 'NamingConvention action using C#'
+branding:
+  icon: arrow-right-circle
+  color: red
+inputs:
+  path:
+    description: 'Folder path'
+    required: true
+    default: 'unknown'
+  environment:
+    description: 'Environment to deploy'
+    required: true
+    default: 'unknown'
+  product:
+    description: 'Product'
+    required: true
+    default: 'unknown'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
+    - ${{ inputs.environment }}
+    - ${{ inputs.product }}
+  entrypoint: "/app/entrypoint.sh"
