@@ -350,3 +350,5 @@ MigrationBackup/
 .ionide/
 Actions.NamingConventions/.DS_Store
 .DS_Store
+.idea/.idea.Actions.NamingConventions/.idea/encodings.xml
+Actions.NamingConventions/.idea/.idea.Actions.NamingConventions/.idea/workspace.xml
