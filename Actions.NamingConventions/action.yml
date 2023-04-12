@@ -15,6 +15,19 @@ inputs:
     description: 'Product'
     required: true
     default: 'unknown'
+outputs:
+  RgName:
+    description:
+      'the resource group name'
+  ApimName:
+    description:
+      'The azure api management name'
+  ApiPath:
+    description:
+      'the azure api management api path'
+  FunctionName:
+    description:
+      'the azure function name'
 runs:
   using: 'docker'
   image: 'Dockerfile'
