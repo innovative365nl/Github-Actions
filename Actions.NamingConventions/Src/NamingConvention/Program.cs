@@ -28,10 +28,10 @@ var logic = folderName.Split(".")[1];
 var type  = InputHelper.ReturnType(folderName: ref folderName, argumentErrorStr: argumentErrorStr);
 
 
+Console.WriteLine($"::set-output name=RgName::{environment}-{product}-Rg-Weu");
 Console.WriteLine($"::set-output name=ApimName::{environment}-{product}-Main-Apim-Weu");
 Console.WriteLine($"::set-output name=ApiId::{type.Remove(4)}-{logic}");
 Console.WriteLine($"::set-output name=ApiPath::{type.ToLower()}/{logic.ToLower()}");
-
 Console.WriteLine($"::set-output name=FunctionName::{environment}-{product}-{type.Remove(4)}-{logic}-Func-001-Weu");
 
 
