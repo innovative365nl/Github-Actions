@@ -26,6 +26,7 @@ product = product.Remove(8);
 var logic = folderName.Split(".")[1];
 var type  = InputHelper.ReturnType(folderName: ref folderName, argumentErrorStr: argumentErrorStr);
 
+var folder = folderName.Split(".")[0];
 var rgName = $"{environment}-{product}-Rg-Weu";
 var apimName = $"{environment}-{product}-Main-Apim-Weu";
 var apiId = $"{type.Remove(4)}-{logic}";
@@ -37,6 +38,7 @@ var gitHubOutputFile = Environment.GetEnvironmentVariable("GITHUB_OUTPUT");
 if (!string.IsNullOrWhiteSpace(gitHubOutputFile))
 {
     await using StreamWriter textWriter = new(gitHubOutputFile, true, Encoding.UTF8);
+    textWriter.WriteLine($"FolderName={folderName}");
     textWriter.WriteLine($"RgName={rgName}");
     textWriter.WriteLine($"ApimName={apimName}");
     textWriter.WriteLine($"ApiId={apiId}");

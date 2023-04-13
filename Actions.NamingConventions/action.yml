@@ -16,6 +16,9 @@ inputs:
     required: true
     default: 'unknown'
 outputs:
+  FolderName:
+    description:
+      'the folder name used to determine the group of functions'
   RgName:
     description:
       'the resource group name'
