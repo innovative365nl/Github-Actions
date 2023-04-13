@@ -30,7 +30,7 @@ var rgName = $"{environment}-{product}-Rg-Weu";
 var apimName = $"{environment}-{product}-Main-Apim-Weu";
 var apiId = $"{type.Remove(4)}-{logic}";
 var apiPath = $"{type.ToLower()}/{logic.ToLower()}";
-var functionName = $"{environment}-{product}-{type.Remove(4)}-{logic}-Func-001-Weu";
+var functionName = $"{environment}-{product}-{type.Remove(4)}-{logic}-Func-01-Weu";
 
 
 var gitHubOutputFile = Environment.GetEnvironmentVariable("GITHUB_OUTPUT");
