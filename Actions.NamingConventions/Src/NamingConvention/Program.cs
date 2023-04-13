@@ -4,7 +4,7 @@ using System.Text;
 using NamingConvention;
 
 if (args.Length <= 0) throw new ArgumentException("Please supply arguments.");
-
+//test comment
 
 const string path             = "unknown";
 const string argumentErrorStr = "Please supply arguemnt: `{0}` to action.";
