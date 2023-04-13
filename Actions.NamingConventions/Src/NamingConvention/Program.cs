@@ -38,7 +38,7 @@ var gitHubOutputFile = Environment.GetEnvironmentVariable("GITHUB_OUTPUT");
 if (!string.IsNullOrWhiteSpace(gitHubOutputFile))
 {
     await using StreamWriter textWriter = new(gitHubOutputFile, true, Encoding.UTF8);
-    textWriter.WriteLine($"FolderName={folderName}");
+    textWriter.WriteLine($"FolderName={folder}");
     textWriter.WriteLine($"RgName={rgName}");
     textWriter.WriteLine($"ApimName={apimName}");
     textWriter.WriteLine($"ApiId={apiId}");
