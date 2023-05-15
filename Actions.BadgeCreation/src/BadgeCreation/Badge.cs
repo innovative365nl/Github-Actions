@@ -1,6 +1,6 @@
 ﻿namespace BadgeCreation;
 
-class Badge
+public class Badge
 {
     public string Id { get; set; }
     public string Name { get; set; }

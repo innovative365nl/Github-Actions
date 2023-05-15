@@ -9,8 +9,10 @@ var badgeValue = Enum.TryParse(args[2], out StatusEnum status) ? status : Status
 
 if (!File.Exists(path: path)) throw new FileNotFoundException($"Cannot find file at path: {path}");
 
-var badge = Badge.Create(badgeName, badgeValue);
+var badge = new Badge(badgeName, badgeValue);
 
 Console.WriteLine($"Badge created with id: {badge.Id}");
 
-File.WriteAllText(path, badge.ToString());
+var badgeUri = $"https://img.shields.io/badge/{badge.Name}-{badge.Status.ToString()}-blue";
+
+File.WriteAllText(path, badgeUri);
