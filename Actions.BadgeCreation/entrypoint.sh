@@ -1,1 +1,1 @@
-dotnet /app/BadgeCreation.dll $@
+dotnet /app/BadgeCreation/BadgeCreation.dll $@
