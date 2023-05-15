@@ -9,10 +9,10 @@ public class Badge
 
     public Badge(string name, StatusEnum status)
     {
-        Id = Guid.NewGuid().ToString(),
-        Name = name,
-        Description = "This is a badge",
-        Status = status
+        Id = Guid.NewGuid().ToString();
+        Name = name;
+        Description = "This is a badge";
+        Status = status;
     } 
 }
 
