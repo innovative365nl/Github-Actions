@@ -1,0 +1,25 @@
+name: 'My custom action using C#'
+branding:
+  icon: arrow-right-circle
+  color: purple
+inputs:
+  file-to-update:
+    description: 'File to update. Default to README.md'
+    required: true
+    default: 'README.md'
+  badge-name:
+    description: 'Name of the badge to update. Default to "My badge"'
+    required: true
+    default: 'My badge'
+  badge-value:
+    description: 'Value of the badge to update. Default to "My value"'
+    required: true
+    default: 'Failure'      
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.file-to-update }}
+    - ${{ inputs.badge-name }}
+    - ${{ inputs.badge-value }}
+  entrypoint: "/app/entrypoint.sh"
