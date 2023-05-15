@@ -9,7 +9,7 @@ var badgeValue = Enum.TryParse(args[2], out StatusEnum status) ? status : Status
 
 if (!File.Exists(path: path)) throw new FileNotFoundException($"Cannot find file at path: {path}");
 
-var badge = new Badge(badgeName, badgeValue);
+var badge = new Badge(name: badgeName, status: badgeValue);
 
 Console.WriteLine($"Badge created with id: {badge.Id}");
 

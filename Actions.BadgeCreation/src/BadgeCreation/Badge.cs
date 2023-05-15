@@ -7,17 +7,12 @@ public class Badge
     public string Description { get; set; }
     public StatusEnum Status { get; set; }
 
-    public static Badge Create(string name, StatusEnum status)
+    public Badge(string name, StatusEnum status)
     {
-        var badge = new Badge()
-        {
-            Id = Guid.NewGuid().ToString(),
-            Name = name,
-            Description = "This is a badge",
-            Status = status
-        };
-        
-        return badge;
+        Id = Guid.NewGuid().ToString(),
+        Name = name,
+        Description = "This is a badge",
+        Status = status
     } 
 }
 
