@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-dotnet /app/BadgeCreation/BadgeCreation.dll $@
+dotnet /app/BadgeCreation.dll $@
