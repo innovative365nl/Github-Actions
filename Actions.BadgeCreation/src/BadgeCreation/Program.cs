@@ -13,6 +13,7 @@ var badge = new Badge(name: badgeName, status: badgeValue);
 
 Console.WriteLine($"Badge created with id: {badge.Id}");
 
-var badgeUri = $"https://img.shields.io/badge/{badge.Name}-{badge.Status.ToString()}-blue";
+var badgeUri = $"https://img.shields.io/badge/{badge.Name}-{badge.Status.ToString()}-green";
+var markdownBadge = $"![{badge.Name}]({badgeUri})";
 
-File.WriteAllText(path, badgeUri);
+File.WriteAllText(path, markdownBadge);
