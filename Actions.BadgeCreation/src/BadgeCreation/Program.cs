@@ -19,7 +19,7 @@ var repo = await gitHubClient.Repository.Get(owner: "innovative365nl",name: ".gi
 if (repo != null)
     Console.WriteLine($"Repository found: {repo.FullName}");
 
-var readme = await gitHubClient.Repository.Content.GetAllContentsByRef(owner: "innovative365nl", name: ".github-private", path: "README.md", reference: "main");
+var readme = await gitHubClient.Repository.Content.GetAllContentsByRef(owner: "innovative365nl", name: ".github-private", path: "profile/README.md", reference: "main");
 
 var targetFile = readme.FirstOrDefault(x => x.Name == "README.md");
 if (targetFile != null)
