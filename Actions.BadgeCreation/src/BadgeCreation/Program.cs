@@ -14,10 +14,10 @@ var token = args[5];
 var github = new GitHubClient(new ProductHeaderValue("ReadmeBadges"));
 github.Credentials = new Credentials(token);
 
-var repo = await github.Repository.Get(owner: "innovative365nl",name: ".github-private");
+// var repo = await github.Repository.Get(owner: "innovative365nl",name: ".github-private");
 var repos = await github.Repository.GetAllForOrg("innovative365nl");
-if (repo != null)
-    Console.WriteLine($"Repository found: {repo.FullName}");
+// if (repo != null)
+//     Console.WriteLine($"Repository found: {repo.FullName}");
 Console.WriteLine($"Repositories found: {repos.Count}");
 foreach (Repository repository in repos)
 {
