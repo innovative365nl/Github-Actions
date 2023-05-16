@@ -14,7 +14,7 @@ var token = args[5];
 var github = new GitHubClient(new ProductHeaderValue("ReadmeBadges"));
 github.Credentials = new Credentials(token);
 
-var repo = await github.Repository.Get(owner: "MatthijsvanderPlas",name: "farm");
+var repo = await github.Repository.Get(owner: "innovative365nl",name: ".github-private");
 Console.WriteLine($"Repository found: {repo.FullName}");
 
 if (!File.Exists(path: path)) throw new FileNotFoundException($"Cannot find file at path: {path}");
