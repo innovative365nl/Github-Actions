@@ -10,9 +10,8 @@ var badgeValue = Enum.TryParse(args[2], out StatusEnum status) ? status : Status
 var badgeColor = args[3];
 var badgeColumn = args[4];
 var token = args[5];
-Console.WriteLine();
-var github = new GitHubClient(new ProductHeaderValue("ReadmeBadges"))
 
+var github = new GitHubClient(new ProductHeaderValue("ReadmeBadges"));
 github.Credentials = new Credentials(token);
 
 var repo = await github.Repository.Get(owner: "innovative365nl", name: ".github-private");
