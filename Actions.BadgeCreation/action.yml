@@ -12,14 +12,33 @@ inputs:
     required: true
     default: 'My badge'
   badge-value:
-    description: 'Value of the badge to update. Default to "My value"'
+    description: 'Value of the badge to update. Default to "Failure"'
     required: true
-    default: 'Failure'      
+    default: 'Failure'
+  badge-color: 
+    description: 'Value for the color of the badge. Default to "Red"'
+    required: true
+    default: 'Red'
+  badge-column:
+    description: 'Value to set which column the badge belongs to. Either Build or Deploy'
+    required: true
+  token:
+    description: 'Personal Access Token for Octokit to use'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - f
     - ${{ inputs.file-to-update }}
+    - n
     - ${{ inputs.badge-name }}
+    - v
     - ${{ inputs.badge-value }}
+    - c
+    - ${{ inputs.badge-color }}
+    - i
+    - ${{ inputs.badge-column }}
+    - t
+    - ${{ inputs.token }}
   entrypoint: "/app/entrypoint.sh"
