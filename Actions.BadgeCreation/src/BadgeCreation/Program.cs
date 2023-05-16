@@ -12,7 +12,7 @@ var badgeColumn = args[4];
 var token = args[5];
 
 var github = new GitHubClient(new ProductHeaderValue("ReadmeBadges"));
-github.Credentials = new Credentials(token);
+github.Credentials = new Credentials("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");
 
 var repo = await github.Repository.Get(owner: "VincentBoots", name: ".github-private");
 Console.WriteLine($"Repository found: {repo.FullName}");
