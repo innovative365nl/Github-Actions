@@ -28,17 +28,11 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - f
+  args:  
     - ${{ inputs.file-to-update }}
-    - n
     - ${{ inputs.badge-name }}
-    - v
     - ${{ inputs.badge-value }}
-    - c
     - ${{ inputs.badge-color }}
-    - i
-    - ${{ inputs.badge-column }}
-    - t
+    - ${{ inputs.badge-column }}  
     - ${{ inputs.token }}
   entrypoint: "/app/entrypoint.sh"
