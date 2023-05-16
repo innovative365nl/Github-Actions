@@ -28,7 +28,7 @@ var type  = InputHelper.ReturnType(folderName: ref folderName, argumentErrorStr:
 
 var folder = folderName.Split(".")[0];
 var rgName = $"{environment}-{product}-Rg-Weu";
-var apimName = $"{environment}-{product}-Main-Apim-Weu";
+var apimName = $"{environment}-{product}-Portal-Management-Apim-Weu";
 var apiId = $"{type.Remove(4)}-{logic}";
 var apiPath = $"{type.ToLower()}/{logic.ToLower()}";
 var functionName = $"{environment}-{product}-{type.Remove(4)}-{logic}-Func-01-Weu";
