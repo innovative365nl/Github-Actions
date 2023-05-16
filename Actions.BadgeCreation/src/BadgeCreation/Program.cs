@@ -1,4 +1,5 @@
-﻿using BadgeCreation;
+﻿using System.Text;
+using BadgeCreation;
 using Octokit;
 
 if (args.Length <= 0) throw new ArgumentException("No arguments were provided.");
@@ -11,13 +12,24 @@ var badgeColor = args[3];
 var badgeColumn = args[4];
 var token = args[5];
 
-var github = new GitHubClient(new ProductHeaderValue("ReadmeBadges"));
-github.Credentials = new Credentials(token);
+var gitHubClient = new GitHubClient(new ProductHeaderValue("ReadmeBadges"));
+gitHubClient.Credentials = new Credentials(token);
 
-var repo = await github.Repository.Get(owner: "innovative365nl",name: ".github-private");
+var repo = await gitHubClient.Repository.Get(owner: "innovative365nl",name: ".github-private");
 if (repo != null)
     Console.WriteLine($"Repository found: {repo.FullName}");
 
+var readme = await gitHubClient.Repository.Content.GetAllContentsByRef(owner: "innovative365nl", name: ".github-private", path: "README.md", reference: "main");
+
+var targetFile = readme.FirstOrDefault(x => x.Name == "README.md");
+if (targetFile != null)
+    Console.WriteLine($"Target file found: {targetFile.Name}");
+
+if (targetFile.EncodedContent != null)
+{
+    var decodedContent = Encoding.UTF8.GetString(Convert.FromBase64String(targetFile.EncodedContent));
+    Console.WriteLine($"Decoded content: {decodedContent}");
+}
 
 if (!File.Exists(path: path)) throw new FileNotFoundException($"Cannot find file at path: {path}");
 
