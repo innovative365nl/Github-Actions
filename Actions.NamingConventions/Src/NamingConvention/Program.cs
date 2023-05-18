@@ -49,7 +49,7 @@ if (!string.IsNullOrWhiteSpace(gitHubOutputFile))
     textWriter.WriteLine($"ApiId={apiId}");
     textWriter.WriteLine($"ApiPath={apiPath}");
     textWriter.WriteLine($"FunctionName={functionName}");
-    textWriter.WriteLine($"WebAppname={webAppName}");
+    textWriter.WriteLine($"WebAppName={webAppName}");
 }
 
 await ValueTask.CompletedTask;
