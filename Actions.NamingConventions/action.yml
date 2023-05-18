@@ -31,6 +31,9 @@ outputs:
   FunctionName:
     description:
       'the azure function name'
+  WebAppName:
+    description:
+      'web app name'
 runs:
   using: 'docker'
   image: 'Dockerfile'
