@@ -36,6 +36,7 @@ var apiPath = $"{type.ToLower()}/{logic.ToLower()}";
 if (type != "Portal")
     type = type.Remove(4);
 var functionName = $"{environment}-{product}-{type}-{logic}-Func-01-Weu";
+var webAppName = $"{environment}-{product}-{type}-{logic}-webApp-Weu";
 
 
 var gitHubOutputFile = Environment.GetEnvironmentVariable("GITHUB_OUTPUT");
@@ -48,6 +49,7 @@ if (!string.IsNullOrWhiteSpace(gitHubOutputFile))
     textWriter.WriteLine($"ApiId={apiId}");
     textWriter.WriteLine($"ApiPath={apiPath}");
     textWriter.WriteLine($"FunctionName={functionName}");
+    textWriter.WriteLine($"WebAppname={webAppName}");
 }
 
 await ValueTask.CompletedTask;
