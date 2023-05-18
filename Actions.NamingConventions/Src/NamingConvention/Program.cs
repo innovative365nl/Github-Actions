@@ -31,7 +31,11 @@ var rgName = $"{environment}-{product}-Rg-Weu";
 var apimName = $"{environment}-{product}-Portal-Management-Apim-Weu";
 var apiId = $"{type.Remove(4)}-{logic}";
 var apiPath = $"{type.ToLower()}/{logic.ToLower()}";
-var functionName = $"{environment}-{product}-{type.Remove(6)}-{logic}-Func-01-Weu";
+
+//temporary change
+if(type != "portal")
+    type = type.Remove(4)
+var functionName = $"{environment}-{product}-{type}-{logic}-Func-01-Weu";
 
 
 var gitHubOutputFile = Environment.GetEnvironmentVariable("GITHUB_OUTPUT");
