@@ -39,7 +39,7 @@ if (type == "Portal" )
 else if (type == "Connectors")
     type = "Connector";
 else 
-    type = type.remove(4);
+    type = type.Remove(4);
 var functionName = $"{environment}-{product}-{type}-{logic}-Func-01-Weu";
 var webAppName = $"{environment}-{product}-{type}-{logic}-webApp-Weu";
 
