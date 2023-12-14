@@ -33,7 +33,7 @@ var apiId = $"{type.Remove(4)}-{logic}";
 var apiPath = $"{type.ToLower()}/{logic.ToLower()}";
 
 //temporary change
-if (type != "Portal")
+if (type != "Portal" || type != "Connector")
     type = type.Remove(4);
 var functionName = $"{environment}-{product}-{type}-{logic}-Func-01-Weu";
 var webAppName = $"{environment}-{product}-{type}-{logic}-webApp-Weu";
