@@ -4,6 +4,6 @@ on:
   push:
 jobs:
   test2:
-    uses: innovative365/Github-Actions/.github/workflows/main.yml@main
+    uses: innovative365nl/Github-Actions/.github/workflows/main.yml@main
     with:
       test_bool: false
