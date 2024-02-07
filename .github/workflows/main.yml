@@ -27,4 +27,4 @@ jobs:
         run: |
           if [ ${{ env.TEST_BOOL }} ]
             echo "Hello! TEST_BOOL == true worked" 
-          
+          fi
