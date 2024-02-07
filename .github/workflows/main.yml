@@ -28,7 +28,7 @@ jobs:
         id: test
         run: |
           echo ${{ inputs.test_bool }}
-          if [ ${{ inputs.test_bool }} ]; then
+          if [ ${{ inputs.test_bool == 'true' }} ]; then
             echo "Hello!"
           else
             echo "Goodbye!"
