@@ -30,7 +30,7 @@ jobs:
         with:
           inlineScript: |
             echo "Starting script"
-            if (${{ inputs.test_bool }} -eq true) {
+            if ('${{ inputs.test_bool }}' -eq 'true') {
                 echo "Hello!"
               }
             else {
