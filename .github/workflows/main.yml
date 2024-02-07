@@ -1,0 +1,30 @@
+name: Testing True eval
+run-name: Testing True Evaluation
+
+on: 
+  push:
+    branches:
+      - main
+      - develop
+  
+  workflow_dispatch:
+
+env:
+  TEST_BOOL: true
+
+permissions:
+  id-token: write
+  contents: read
+
+
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo test
+        run: |
+          if [ ${{ env.TEST_BOOL == true }}]; then
+            echo "Hello! TEST_BOOL == true worked"
+          else
+            echo "Goodbye! Try again!"
+          fi
