@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
     inputs:
       test_bool:
-        required: True
+        required: true
         type: boolean
-        default: True
+        default: true
 
 permissions:
   id-token: write
@@ -32,8 +32,5 @@ jobs:
             echo "Starting script with input: '${{ inputs.test_bool }}'"
             if ('${{ inputs.test_bool }}' -eq 'true') {
                 echo "Hello!"
-              }
-            else {
-                echo "Goodbye!"
               }
           azPSVersion: "latest"        
