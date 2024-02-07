@@ -25,11 +25,15 @@ jobs:
     if: always()
     steps:
       - name: echo test
+        uses: azure/powershell@v1
         id: test
-        run: |
-          echo ${{ inputs.test_bool }}
-          if [ ${{ inputs.test_bool == 'true' }} ]; then
-            echo "Hello!"
-          else
-            echo "Goodbye!"
-          fi
+        with:
+          inlineScript: |
+            echo "Starting script"
+            if (${{ inputs.test_bool }} -eq true) {
+                echo "Hello!"
+              }
+            else {
+                echo "Goodbye!"
+              }
+        
