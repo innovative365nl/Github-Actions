@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  TEST_BOOL: true
+  TEST_BOOL: false
 
 permissions:
   id-token: write
