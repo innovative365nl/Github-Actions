@@ -22,7 +22,7 @@ permissions:
 jobs:
   first:
     runs-on: ubuntu-latest
-    if: always()
+    if: ${{ inputs.teest_bool }}
     steps:
       - name: echo test
         uses: azure/powershell@v1
