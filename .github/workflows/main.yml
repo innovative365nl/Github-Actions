@@ -7,12 +7,12 @@ on:
       - main
       - develop
   
-  workflow_dispatch:
+  workflow_call:
     inputs:
       test_bool:
         required: true
         type: boolean
-        default: 'true'
+        default: true
 
 permissions:
   id-token: write
