@@ -10,4 +10,4 @@ jobs:
   test2:
     uses: innovative365nl/Github-Actions/.github/workflows/main.yml@main
     with:
-      test_bool: false
+      test_bool: true
