@@ -28,6 +28,6 @@ jobs:
         id: test
         run: |
           echo "Hi"
-          if [ false ]; then
+          if [ false ]
             echo "Hello!"
           fi
