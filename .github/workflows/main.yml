@@ -20,6 +20,7 @@ jobs:
     steps:
       - name: echo test
         uses: azure/powershell@v1
+        if: ${{ inputs.test_bool }}
         id: test
         with:
           inlineScript: |
