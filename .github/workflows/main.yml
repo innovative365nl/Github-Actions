@@ -2,11 +2,6 @@ name: Testing True eval
 run-name: Testing True Evaluation
 
 on: 
-  push:
-    branches:
-      - main
-      - develop
-  
   workflow_call:
     inputs:
       test_bool:
@@ -29,7 +24,7 @@ jobs:
         with:
           inlineScript: |
             echo "Starting script with input: ${{ inputs.test_bool }}"
-            if (${{ inputs.test_bool }} -eq true) {
+            if ( ${{ inputs.test_bool }} -eq true) {
                 echo "Hello!"
               }
           azPSVersion: "latest"        
