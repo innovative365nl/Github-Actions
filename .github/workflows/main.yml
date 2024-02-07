@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
     inputs:
       test_bool:
-        required: true
+        required: True
         type: boolean
-        default: true
+        default: True
 
 permissions:
   id-token: write
@@ -29,7 +29,7 @@ jobs:
         id: test
         with:
           inlineScript: |
-            echo "Starting script"
+            echo "Starting script with input: '${{ inputs.test_bool }}'"
             if ('${{ inputs.test_bool }}' -eq 'true') {
                 echo "Hello!"
               }
