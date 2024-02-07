@@ -12,7 +12,7 @@ on:
       test_bool:
         required: true
         type: boolean
-        default: true
+        default: 'true'
 
 permissions:
   id-token: write
@@ -22,7 +22,6 @@ permissions:
 jobs:
   first:
     runs-on: ubuntu-latest
-    if: ${{ inputs.teest_bool }}
     steps:
       - name: echo test
         uses: azure/powershell@v1
@@ -30,7 +29,7 @@ jobs:
         with:
           inlineScript: |
             echo "Starting script with input: ${{ inputs.test_bool }}"
-            if (${{ inputs.test_bool }} -eq true) {
+            if ('${{ inputs.test_bool }}' -eq 'true') {
                 echo "Hello!"
               }
           azPSVersion: "latest"        
