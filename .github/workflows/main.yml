@@ -27,8 +27,8 @@ jobs:
       - name: echo test
         id: test
         run: |
-          if [ ${{ env.TEST_BOOL }} ]; then
-            echo "Hello! TEST_BOOL == true worked" 
+          if [ ${{ inputs.test_bool }} ]; then
+            echo "Hello! test_bool worked" 
           else 
             echo "Goodbye!"
           fi
