@@ -36,4 +36,4 @@ jobs:
             else {
                 echo "Goodbye!"
               }
-        
+          azPSVersion: "latest"        
