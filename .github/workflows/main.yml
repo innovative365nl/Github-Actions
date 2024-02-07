@@ -29,8 +29,8 @@ jobs:
         id: test
         with:
           inlineScript: |
-            echo "Starting script with input: '${{ inputs.test_bool }}'"
-            if ('${{ inputs.test_bool }}' -eq 'true') {
+            echo "Starting script with input: ${{ inputs.test_bool }}"
+            if (${{ inputs.test_bool }} -eq true) {
                 echo "Hello!"
               }
           azPSVersion: "latest"        
