@@ -8,9 +8,11 @@ on:
       - develop
   
   workflow_dispatch:
-
-env:
-  TEST_BOOL: false
+    inputs:
+      test_bool:
+        required: true
+        type: boolean
+        default: true
 
 permissions:
   id-token: write
@@ -25,7 +27,7 @@ jobs:
       - name: echo test
         id: test
         run: |
-          if [ ${{ env.TEST_BOOL == 'true' }} ]; then
+          if [ ${{ env.TEST_BOOL }} ]; then
             echo "Hello! TEST_BOOL == true worked" 
           else 
             echo "Goodbye!"
