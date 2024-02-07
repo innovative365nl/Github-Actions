@@ -27,8 +27,7 @@ jobs:
       - name: echo test
         id: test
         run: |
-          if [ ${{ inputs.test_bool }} ]; then
-            echo "Hello! test_bool worked" 
-          else 
-            echo "Goodbye!"
+          echo "Hi"
+          if [ true ]; then
+            echo "Hello!"
           fi
