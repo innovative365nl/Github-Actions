@@ -37,7 +37,7 @@ if (type == "Portal" )
 {
 }
 else if (type == "Connectors")
-    type = "Connector";
+    type = "Conn";
 else 
     type = type.Remove(4);
 var functionName = $"{environment}-{product}-{type}-{logic}-Func-01-Weu";
