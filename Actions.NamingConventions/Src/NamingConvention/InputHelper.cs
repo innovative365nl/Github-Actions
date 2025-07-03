@@ -7,7 +7,7 @@ public static class InputHelper
         string type;
         if(folderName.Split(".")[0].ToLower() == "automate")
         {
-            type = folderName.Split(".")[1]
+            type = folderName.Split(".")[1];
         }
         else
              type = folderName.Split(".")[0];
