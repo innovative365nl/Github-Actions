@@ -25,7 +25,7 @@ product = product.Remove(8);
 
 Output output = folderName switch
 {
-    var f when folderName.StartsWith("Automate") => AutomateInputHelper.ReturnOutput(folderName: ref folderName,
+    _ when folderName.StartsWith("Automate") => AutomateInputHelper.ReturnOutput(folderName: ref folderName,
         environment: environment, product: product, argumentErrorStr: argumentErrorStr),
     _ => DefaultInputHelper.ReturnOutput(folderName: ref folderName, environment: environment, product: product, argumentErrorStr: argumentErrorStr)
 };
