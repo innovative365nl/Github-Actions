@@ -26,10 +26,10 @@ public class AutomateInputHelper
         };
     }
     
-    private static string GetShortNames(string input, int maxChararacters = 4)
+    private static string GetShortNames(string input, int maxCharacters = 4)
     {
-        if (input.Length > maxChararacters)
-            return input.Substring(0, maxChararacters);
+        if (input.Length > maxCharacters)
+            return input.Substring(0, maxCharacters);
         else
             return input;
     }
