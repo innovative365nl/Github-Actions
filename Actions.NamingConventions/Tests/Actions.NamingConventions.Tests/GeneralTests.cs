@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 namespace Actions.NamingConventions.Tests;
 
-public class GeneralTests
+public class GeneralTests : IDisposable
 {
     private string csprojPath;
     private Process process;
@@ -10,8 +10,13 @@ public class GeneralTests
 
     public GeneralTests()
     {
-        csprojPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory,
-            "../../../../../Src/NamingConvention/NamingConvention.csproj"));
+        var currentDir = AppContext.BaseDirectory;
+        var projectDir = Path.GetFullPath(Path.Combine(currentDir, "../../../../../Src/NamingConvention"));
+        csprojPath = Path.Combine(projectDir, "NamingConvention.csproj");
+        
+        if (!File.Exists(csprojPath))
+            throw new FileNotFoundException($"Project file not found at: {csprojPath}");
+        
         process = new Process
         {
             StartInfo = new ProcessStartInfo
@@ -95,24 +100,18 @@ public class GeneralTests
     [Fact]
     public void Program_WithMissingArguments_ThrowsArgumentException()
     {
-        var process = new Process
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                FileName = "dotnet",
-                Arguments = $"run --project \"{csprojPath}\"",
-                RedirectStandardError = true,
-                RedirectStandardOutput = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            }
-        };
-
         process.Start();
         string error = process.StandardError.ReadToEnd();
         process.WaitForExit();
 
         Assert.Contains("Please supply arguments", error);
         Assert.NotEqual(0, process.ExitCode);
+    }
+
+    public void Dispose()
+    {
+        if (File.Exists(tempOutputFile))
+            File.Delete(tempOutputFile);
+        process?.Dispose();
     }
 }
