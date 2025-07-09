@@ -5,6 +5,7 @@ public class DefaultInputHelper
     public static Output ReturnOutput(ref string folderName, string environment, string product, string argumentErrorStr)
     {
 
+        var folder = folderName.Split(".")[0];
         var logic = folderName.Split(".")[1];
 
         var type = InputHelper.ReturnType(folderName: ref folderName, argumentErrorStr: argumentErrorStr);
@@ -28,7 +29,7 @@ public class DefaultInputHelper
 
         return new Output
         {
-            Folder = folderName,
+            Folder = folder,
             RgName = rgName,
             ApimName = apimName,
             ApiId = apiId,

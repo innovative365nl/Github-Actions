@@ -4,6 +4,7 @@ public class AutomateInputHelper
 {
     public static Output ReturnOutput(ref string folderName, string environment, string product, string argumentErrorStr)
     {
+        var folder = folderName.Split(".")[0];
         var logic = folderName.Split(".")[2];
         var type = InputHelper.ReturnType(folderName: ref folderName, argumentErrorStr: argumentErrorStr);
         var rgName = $"{environment}-{product}-Rg-Weu";
@@ -15,7 +16,7 @@ public class AutomateInputHelper
         
         return new Output
         {
-            Folder = folderName,
+            Folder = folder,
             RgName = rgName,
             ApimName = apimName,
             ApiId = apiId,
