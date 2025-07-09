@@ -23,38 +23,24 @@ if (string.IsNullOrEmpty(product) || product.Equals(path))
     throw new ArgumentException(string.Format(argumentErrorStr, path));
 product = product.Remove(8);
 
-var logic = folderName.Split(".")[1];
-var type  = InputHelper.ReturnType(folderName: ref folderName, argumentErrorStr: argumentErrorStr);
-
-var folder = folderName.Split(".")[0];
-var rgName = $"{environment}-{product}-Rg-Weu";
-var apimName = $"{environment}-{product}-Portal-Management-Apim-Weu";
-var apiId = $"{type.Remove(4)}-{logic}";
-var apiPath = $"{type.ToLower()}/{logic.ToLower()}";
-
-//temporary change
-if (type == "Portal" )
+Output output = folderName switch
 {
-}
-else if (type == "Connectors")
-    type = "Conn";
-else 
-    type = type.Remove(4);
-var functionName = $"{environment}-{product}-{type}-{logic}-Func-01-Weu";
-var webAppName = $"{environment}-{product}-{type}-{logic}-webApp-Weu";
-
+    var f when folderName.StartsWith("Automate") => AutomateInputHelper.ReturnOutput(folderName: ref folderName,
+        environment: environment, product: product, argumentErrorStr: argumentErrorStr),
+    _ => DefaultInputHelper.ReturnOutput(folderName: ref folderName, environment: environment, product: product, argumentErrorStr: argumentErrorStr)
+};
 
 var gitHubOutputFile = Environment.GetEnvironmentVariable("GITHUB_OUTPUT");
 if (!string.IsNullOrWhiteSpace(gitHubOutputFile))
 {
     await using StreamWriter textWriter = new(gitHubOutputFile, true, Encoding.UTF8);
-    textWriter.WriteLine($"FolderName={folder}");
-    textWriter.WriteLine($"RgName={rgName}");
-    textWriter.WriteLine($"ApimName={apimName}");
-    textWriter.WriteLine($"ApiId={apiId}");
-    textWriter.WriteLine($"ApiPath={apiPath}");
-    textWriter.WriteLine($"FunctionName={functionName}");
-    textWriter.WriteLine($"WebAppName={webAppName}");
+    textWriter.WriteLine($"FolderName={output.Folder}");
+    textWriter.WriteLine($"RgName={output.RgName}");
+    textWriter.WriteLine($"ApimName={output.ApimName}");
+    textWriter.WriteLine($"ApiId={output.ApiId}");
+    textWriter.WriteLine($"ApiPath={output.ApiPath}");
+    textWriter.WriteLine($"FunctionName={output.FunctionName}");
+    textWriter.WriteLine($"WebAppName={output.WebAppName}");
 }
 
 await ValueTask.CompletedTask;
